@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block pics %}{% endblock %}
+
+{% block content %}
+<div class="explore-menu-section py-5" id="exploreMenu">
+  <div class="container">
+
+    <!-- Section Heading -->
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="fw-bold">Items Description: {{ menu_item.item_name }}</h2>
+      </div>
+    </div>
+
+    <!-- Menu Items Grid -->
+    <div class="row g-4">
+      {% for make in makes %}
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <!-- Square Image -->
+          <div class="card-img-top-wrapper">
+            <img src="{{ make.image_food.url }}" class="img-fluid w-100 h-100 object-fit-cover" alt="{{ make.short_description }}">
+          </div>
+          <!-- Card Body -->
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ make.short_description }}</h5>
+            {% if make.price %}
+            <p class="fw-bold mb-0">₹{{ make.price }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+{% endblock %}

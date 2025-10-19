@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block pics %}{% endblock %}
+
+{% block content %}
+  <div class="explore-menu-section pt-5 pb-5" id="exploreMenu">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="menu-section-heading">Items</h1>
+          </div>
+          {% for item in items%}
+          <div class="col-12 col-md-6 col-lg-3">
+
+            
+            <div class="shadow menu-item-card p-3 mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1 class="menu-card-title">{{item.item_name}}</h1>
+                    <span class="menu-card-price">₹{{item.price}}</span>
+                </div>
+              
+              
+              <a href="{% url 'description' item.pk%}" class="menu-item-link">
+                Description
+                <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+                  />
+                </svg>
+              </a>
+            </div>
+            
+          </div>
+          {%endfor%}
+          
+          
+          
+          
+          
+          
+          
+          
+        </div>
+      </div>
+  </div>
+  
+
+  {%endblock%}
+  
+   
+  

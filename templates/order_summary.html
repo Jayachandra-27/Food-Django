@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block pics %}{% endblock %}
+{% block content %}
+<div class="container pt-5 pb-5">
+  <h2>Order Summary</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <td>{{ item.item_name }}</td>
+        <td>{{ item.cart_quantity }}</td>
+        <td>₹{{ item.total_price }}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="2"><strong>Grand Total</strong></td>
+        <td><strong>₹{{ grand_total }}</strong></td>
+      </tr>
+    </tbody>
+  </table>
+ <div class="mt-4 d-flex justify-content-between">
+  <a href="{% url 'clear_cart' %}" class="btn btn-danger flex-fill me-2">Clear Cart</a>
+  <a href="{% url 'view_menu' %}" class="btn btn-primary flex-fill mx-2">Back to Menu</a>
+  <a href="{% url 'checkout' %}" class="btn btn-success flex-fill ms-2">Pay Now</a>
+</div>
+
+
+</div>
+{% endblock %}
